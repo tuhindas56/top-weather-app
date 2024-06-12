@@ -32,9 +32,9 @@ module.exports = {
         type: 'asset/resource',
       },
       {
-        test: /\.s?css$/i,
+        test: /\.css$/i,
         include: path.resolve(__dirname, 'src'),
-        use: ['style-loader', 'css-loader', 'postcss-loader'],
+        use: ['style-loader', 'css-loader'],
       },
     ],
   },
