@@ -8,4 +8,13 @@ module.exports = merge(common, {
   devServer: {
     watchFiles: [path.resolve(__dirname, 'src/**/*.html')],
   },
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        include: path.resolve(__dirname, 'src'),
+        use: ['style-loader', 'css-loader'],
+      },
+    ],
+  },
 })
