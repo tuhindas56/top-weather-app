@@ -6,10 +6,9 @@
 }
 
 :root {
-  --text-base-100: 13px;
-  --text-base-200: 14px;
-  --text-base-300: 16px;
-  --text-base-400: 18px;
+  --text-base-100: 14px;
+  --text-base-200: 16px;
+  --text-base-300: 18px;
   --color-dark-gray: #64748b;
   --color-sky-100: #f0f9ff;
   --color-sky-200: #e0f2fe;
@@ -82,6 +81,10 @@ h6 {
 .bold {
   font-weight: bold;
 }
+.outline {
+  outline: var(--outline);
+  border-radius: 0.5rem;
+}
 
 html {
   font-size: var(--text-base-100);
@@ -131,7 +134,7 @@ img {
 .current-info img {
   position: absolute;
   right: -4%;
-  height: 100px;
+  height: 130px;
 }
 
 .hourly-info {
@@ -218,24 +221,9 @@ footer p a:hover::after {
   filter: drop-shadow(0 0 0.95rem #38bdf8);
 }
 
-@media (min-width: 400px) {
-  .outline {
-    outline: var(--outline);
-    border-radius: 0.5rem;
-  }
-
-  html {
-    font-size: var(--text-base-200);
-  }
-
-  .current-info img {
-    height: 130px;
-  }
-}
-
 @media (min-width: 500px) {
   html {
-    font-size: var(--text-base-300);
+    font-size: var(--text-base-200);
   }
 
   .forecast img {
@@ -245,7 +233,7 @@ footer p a:hover::after {
 
 @media (min-width: 800px) {
   html {
-    font-size: var(--text-base-400);
+    font-size: var(--text-base-300);
   }
 
   .current-info img {
