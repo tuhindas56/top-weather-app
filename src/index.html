@@ -12,50 +12,83 @@
       referrerpolicy="no-referrer"
     />
   </head>
-  <body class="flex flex-col">
+  <body class="flex flex-col align-center justify-between">
     <main>
-      <div class="today-card border">
-        <div class="current-info flex">
+      <!-- Current Weather Info -->
+      <div class="today-card outline">
+        <div class="current-info flex align-center justify-between">
           <div>
-            <p>23° C</p>
-            <p>Tokyo, USA</p>
+            <p class="bold">23° C</p>
+            <p class="bold">Tokyo, USA</p>
           </div>
           <img src="./assets/svg/fill/clear-day.svg" alt="Sunny" />
         </div>
 
-        <ul class="hourly-info flex">
-          <li class="hour-card flex flex-col">
-            <p>29° C</p>
+        <ul class="hourly-info grid justify-between">
+          <li class="hour-card flex flex-col align-center justify-between">
+            <p class="bold">32° C</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p>11:00</p>
+            <p class="bold">11:00</p>
             <p>AM</p>
           </li>
-          <li class="hour-card flex flex-col">
-            <p>29° C</p>
+          <li class="hour-card flex flex-col align-center justify-between">
+            <p class="bold">30° C</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p>11:00</p>
-            <p>AM</p>
+            <p class="bold">12:00</p>
+            <p>PM</p>
           </li>
-          <li class="hour-card flex flex-col">
-            <p>29° C</p>
+          <li class="hour-card flex flex-col align-center justify-between">
+            <p class="bold">28° C</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p>11:00</p>
-            <p>AM</p>
+            <p class="bold">13:00</p>
+            <p>PM</p>
           </li>
-          <li class="hour-card flex flex-col">
-            <p>29° C</p>
+          <li class="hour-card flex flex-col align-center justify-between">
+            <p class="bold">28° C</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p>11:00</p>
-            <p>AM</p>
+            <p class="bold">14:00</p>
+            <p>PM</p>
           </li>
-          <li class="hour-card flex flex-col">
-            <p>29° C</p>
+          <li class="hour-card flex flex-col align-center justify-between">
+            <p class="bold">26° C</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p>11:00</p>
-            <p>AM</p>
+            <p class="bold">15:00</p>
+            <p>PM</p>
           </li>
         </ul>
       </div>
+
+      <!-- Next Two Days Weather Info -->
+      <ul class="grid forecast-card outline">
+        <li class="forecast">
+          <button class="grid grid-flow-col align-center justify-between">
+            <span>Fri, 22 Jan</span>
+            <div class="grid grid-flow-col precipitation align-center">
+              <span>12%</span>
+              <img
+                src="./assets/svg/line/raindrop.svg"
+                alt="precipitation icon"
+              />
+            </div>
+            <img src="./assets/svg/line/clear-day.svg" alt="" />
+            <span>18° / 32°</span>
+          </button>
+        </li>
+        <li class="forecast">
+          <button class="grid grid-flow-col align-center justify-between">
+            <span>Sat, 23 Jan</span>
+            <div class="grid grid-flow-col precipitation align-center">
+              <span>100%</span>
+              <img
+                src="./assets/svg/line/raindrop.svg"
+                alt="precipitation icon"
+              />
+            </div>
+            <img src="./assets/svg/line/drizzle.svg" alt="" />
+            <span>22° / 36°</span>
+          </button>
+        </li>
+      </ul>
     </main>
     <footer>
       <p>

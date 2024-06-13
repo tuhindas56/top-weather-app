@@ -6,8 +6,18 @@
 }
 
 :root {
+  --text-base-100: 13px;
+  --text-base-200: 14px;
+  --text-base-300: 16px;
+  --text-base-400: 18px;
   --color-dark-gray: #64748b;
-  --transition-duration: 0.3s;
+  --color-sky-100: #f0f9ff;
+  --color-sky-200: #e0f2fe;
+  --hover-gray: #475569;
+  --text-dark: #334155;
+  --outline: 0.5rem solid rgba(255, 255, 255, 0.342);
+  --padding: 2rem;
+  --transition-duration: 0.15s;
 }
 
 *,
@@ -53,22 +63,38 @@ h6 {
 
 .flex {
   display: flex;
-  column-gap: 2.5rem;
 }
 .flex-col {
   flex-direction: column;
 }
+.grid {
+  display: grid;
+}
+.grid-flow-col {
+  grid-auto-flow: column;
+}
+.align-center {
+  align-items: center;
+}
+.justify-between {
+  justify-content: space-between;
+}
+.bold {
+  font-weight: bold;
+}
 
 html {
-  font-size: 13px;
+  font-size: var(--text-base-100);
   font-family: opensansregular, sans-serif, system-ui;
-  color: #334155;
+  color: var(--text-dark);
 }
 
 body {
   background: linear-gradient(to top right, #7dd3fc, #a5f3fc);
-  align-items: center;
-  justify-content: space-between;
+}
+
+main {
+  width: clamp(360px, 80vw, 680px);
 }
 
 ul {
@@ -82,23 +108,18 @@ img {
 }
 
 .today-card {
-  min-width: max-content;
-  background-color: #f0f9ff;
+  width: 100%;
+  background-color: var(--color-sky-100);
   margin-block: 2.5rem;
-  padding: 2rem;
-  border-radius: 0.5rem;
+  padding: var(--padding);
   pointer-events: none;
   user-select: none;
+  text-wrap: nowrap;
 }
 
 .current-info {
   position: relative;
-  justify-content: space-between;
-  align-items: center;
   padding-top: 0.5rem;
-}
-.current-info p {
-  font-weight: bold;
 }
 .current-info p:first-child {
   font-size: 3.75rem;
@@ -109,17 +130,16 @@ img {
 }
 .current-info img {
   position: absolute;
-  right: -14px;
+  right: -4%;
   height: 100px;
 }
 
 .hourly-info {
   margin-top: 3.5rem;
-  justify-content: space-between;
+  grid-auto-flow: column;
 }
-.hour-card {
-  align-items: center;
-  justify-content: space-between;
+.hour-card img {
+  height: 50px;
 }
 .hour-card p:first-child {
   font-size: 1.125rem;
@@ -132,14 +152,38 @@ img {
 .hour-card p:last-child {
   color: var(--color-dark-gray);
 }
-.hour-card p:first-child,
-.hour-card p:nth-child(3) {
-  font-weight: bold;
-}
 .hour-card p:nth-child(3),
 .hour-card p:last-child {
   font-size: 0.875rem;
   line-height: 1rem;
+}
+
+.forecast-card {
+  width: 100%;
+  row-gap: 1rem;
+  background-color: var(--color-sky-100);
+  padding: var(--padding);
+}
+.forecast button {
+  width: 100%;
+  column-gap: 1rem;
+  border: 0;
+  color: var(--text-dark);
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  text-wrap: nowrap;
+  background-color: var(--color-sky-100);
+  transition-duration: var(--transition-duration);
+}
+.forecast button:hover {
+  background-color: var(--color-sky-200);
+  cursor: pointer;
+}
+.forecast img {
+  height: 40px;
+}
+.precipitation {
+  grid-template-columns: 4ch max-content;
 }
 
 footer {
@@ -148,12 +192,12 @@ footer {
 }
 footer p a {
   position: relative;
-  color: #000;
+  color: var(--text-dark);
   text-decoration: none;
   transition-duration: var(--transition-duration);
 }
 footer p a:hover {
-  color: #475569;
+  color: var(--hover-gray);
 }
 footer p a:hover::after {
   position: absolute;
@@ -167,7 +211,7 @@ footer p a:hover::after {
   right: 30px;
   font-size: 3rem;
   text-decoration: none;
-  color: #fff;
+  color: var(--color-sky-100);
   transition-duration: var(--transition-duration);
 }
 .fa-github:hover {
@@ -175,36 +219,40 @@ footer p a:hover::after {
 }
 
 @media (min-width: 400px) {
-  .border {
-    outline: 0.5rem solid rgba(255, 255, 255, 0.342);
+  .outline {
+    outline: var(--outline);
+    border-radius: 0.5rem;
   }
 
   html {
-    font-size: 14px;
+    font-size: var(--text-base-200);
   }
 
   .current-info img {
-    right: -14px;
     height: 130px;
   }
 }
 
 @media (min-width: 500px) {
   html {
-    font-size: 16px;
+    font-size: var(--text-base-300);
+  }
+
+  .forecast img {
+    height: 50px;
   }
 }
 
 @media (min-width: 800px) {
   html {
-    font-size: 18px;
+    font-size: var(--text-base-400);
   }
 
-  .current-info {
-    width: 600px;
-  }
   .current-info img {
-    right: -14px;
     height: 160px;
+  }
+
+  .forecast img {
+    height: 60px;
   }
 }
