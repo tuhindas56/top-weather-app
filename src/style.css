@@ -1,3 +1,15 @@
+@font-face {
+  font-family: 'opensansregular';
+  src: url('./assets/fonts/OpenSans-Regular-webfont.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
+:root {
+  --color-dark-gray: #64748b;
+  --transition-duration: 0.3s;
+}
+
 *,
 *::before,
 *::after {
@@ -37,4 +49,162 @@ h6 {
 #root,
 #__next {
   isolation: isolate;
+}
+
+.flex {
+  display: flex;
+  column-gap: 2.5rem;
+}
+.flex-col {
+  flex-direction: column;
+}
+
+html {
+  font-size: 13px;
+  font-family: opensansregular, sans-serif, system-ui;
+  color: #334155;
+}
+
+body {
+  background: linear-gradient(to top right, #7dd3fc, #a5f3fc);
+  align-items: center;
+  justify-content: space-between;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+img {
+  user-select: none;
+  pointer-events: none;
+}
+
+.today-card {
+  min-width: max-content;
+  background-color: #f0f9ff;
+  margin-block: 2.5rem;
+  padding: 2rem;
+  border-radius: 0.5rem;
+  pointer-events: none;
+  user-select: none;
+}
+
+.current-info {
+  position: relative;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 0.5rem;
+}
+.current-info p {
+  font-weight: bold;
+}
+.current-info p:first-child {
+  font-size: 3.75rem;
+  line-height: 1;
+}
+.current-info p:last-child {
+  color: var(--color-dark-gray);
+}
+.current-info img {
+  position: absolute;
+  right: -14px;
+  height: 100px;
+}
+
+.hourly-info {
+  margin-top: 3.5rem;
+  justify-content: space-between;
+}
+.hour-card {
+  align-items: center;
+  justify-content: space-between;
+}
+.hour-card p:first-child {
+  font-size: 1.125rem;
+  line-height: 1.75rem;
+  padding-bottom: 0.5rem;
+}
+.hour-card p:nth-child(3) {
+  padding-top: 0.25rem;
+}
+.hour-card p:last-child {
+  color: var(--color-dark-gray);
+}
+.hour-card p:first-child,
+.hour-card p:nth-child(3) {
+  font-weight: bold;
+}
+.hour-card p:nth-child(3),
+.hour-card p:last-child {
+  font-size: 0.875rem;
+  line-height: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 1.5em;
+}
+footer p a {
+  position: relative;
+  color: #000;
+  text-decoration: none;
+  transition-duration: var(--transition-duration);
+}
+footer p a:hover {
+  color: #475569;
+}
+footer p a:hover::after {
+  position: absolute;
+  content: '↗';
+  margin-left: 0.2em;
+}
+
+.fa-github {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  font-size: 3rem;
+  text-decoration: none;
+  color: #fff;
+  transition-duration: var(--transition-duration);
+}
+.fa-github:hover {
+  filter: drop-shadow(0 0 0.95rem #38bdf8);
+}
+
+@media (min-width: 400px) {
+  .border {
+    outline: 0.5rem solid rgba(255, 255, 255, 0.342);
+  }
+
+  html {
+    font-size: 14px;
+  }
+
+  .current-info img {
+    right: -14px;
+    height: 130px;
+  }
+}
+
+@media (min-width: 500px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+@media (min-width: 800px) {
+  html {
+    font-size: 18px;
+  }
+
+  .current-info {
+    width: 600px;
+  }
+  .current-info img {
+    right: -14px;
+    height: 160px;
+  }
 }

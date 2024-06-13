@@ -3,7 +3,79 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Webpack Project</title>
+    <title>Weather App</title>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
   </head>
-  <body></body>
+  <body class="flex flex-col">
+    <main>
+      <div class="today-card border">
+        <div class="current-info flex">
+          <div>
+            <p>23° C</p>
+            <p>Tokyo, USA</p>
+          </div>
+          <img src="./assets/svg/fill/clear-day.svg" alt="Sunny" />
+        </div>
+
+        <ul class="hourly-info flex">
+          <li class="hour-card flex flex-col">
+            <p>29° C</p>
+            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
+            <p>11:00</p>
+            <p>AM</p>
+          </li>
+          <li class="hour-card flex flex-col">
+            <p>29° C</p>
+            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
+            <p>11:00</p>
+            <p>AM</p>
+          </li>
+          <li class="hour-card flex flex-col">
+            <p>29° C</p>
+            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
+            <p>11:00</p>
+            <p>AM</p>
+          </li>
+          <li class="hour-card flex flex-col">
+            <p>29° C</p>
+            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
+            <p>11:00</p>
+            <p>AM</p>
+          </li>
+          <li class="hour-card flex flex-col">
+            <p>29° C</p>
+            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
+            <p>11:00</p>
+            <p>AM</p>
+          </li>
+        </ul>
+      </div>
+    </main>
+    <footer>
+      <p>
+        built by
+        <a
+          href="https://github.com/tuhindas56/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          Tuhin Das
+        </a>
+      </p>
+
+      <a
+        href="https://github.com/tuhindas56/top-weather-app"
+        target="_blank"
+        rel="noopener noreferre"
+        class="fa-brands fa-github"
+      >
+      </a>
+    </footer>
+  </body>
 </html>
