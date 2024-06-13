@@ -9,11 +9,13 @@
   --text-base-100: 14px;
   --text-base-200: 16px;
   --text-base-300: 18px;
-  --color-dark-gray: #64748b;
-  --color-sky-100: #f0f9ff;
-  --color-sky-200: #e0f2fe;
-  --hover-gray: #475569;
   --text-dark: #334155;
+  --color-dark-gray: #64748b;
+  --color-sky-50: #f0f9ff;
+  --color-sky-100: #e0f2fe;
+  --color-sky-200: #bae6fd;
+  --hover-gray: #475569;
+  --border-radius: 0.5rem;
   --outline: 0.5rem solid rgba(255, 255, 255, 0.342);
   --padding: 2rem;
   --transition-duration: 0.15s;
@@ -83,7 +85,7 @@ h6 {
 }
 .outline {
   outline: var(--outline);
-  border-radius: 0.5rem;
+  border-radius: var(--border-radius);
 }
 
 html {
@@ -110,9 +112,40 @@ img {
   pointer-events: none;
 }
 
+.search {
+  margin-top: 2rem;
+}
+input[type='search'] {
+  width: 100%;
+  text-align: center;
+  border-top-left-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+}
+input[type='search']:focus {
+  outline: 0;
+  background-color: var(--color-sky-50);
+}
+button[type='submit'] {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+  background-color: var(--color-sky-50);
+  transition-duration: var(--transition-duration);
+}
+button[type='submit']:hover {
+  background-color: var(--color-sky-100);
+}
+button[type='submit']:active {
+  background-color: var(--color-sky-200);
+}
+input[type='search'],
+button[type='submit'] {
+  border: 0;
+  padding: 1rem;
+}
+
 .today-card {
   width: 100%;
-  background-color: var(--color-sky-100);
+  background-color: var(--color-sky-50);
   margin-block: 2.5rem;
   padding: var(--padding);
   pointer-events: none;
@@ -164,7 +197,7 @@ img {
 .forecast-card {
   width: 100%;
   row-gap: 1rem;
-  background-color: var(--color-sky-100);
+  background-color: var(--color-sky-50);
   padding: var(--padding);
 }
 .forecast button {
@@ -175,11 +208,11 @@ img {
   font-size: 1.125rem;
   line-height: 1.75rem;
   text-wrap: nowrap;
-  background-color: var(--color-sky-100);
+  background-color: var(--color-sky-50);
   transition-duration: var(--transition-duration);
 }
 .forecast button:hover {
-  background-color: var(--color-sky-200);
+  background-color: var(--color-sky-100);
   cursor: pointer;
 }
 .forecast img {
@@ -214,7 +247,7 @@ footer p a:hover::after {
   right: 30px;
   font-size: 3rem;
   text-decoration: none;
-  color: var(--color-sky-100);
+  color: var(--color-sky-50);
   transition-duration: var(--transition-duration);
 }
 .fa-github:hover {
