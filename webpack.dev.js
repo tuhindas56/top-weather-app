@@ -6,7 +6,7 @@ module.exports = merge(common, {
   mode: 'development',
   devtool: 'inline-source-map',
   devServer: {
-    watchFiles: [path.resolve(__dirname, 'src/**/*.html')],
+    watchFiles: [path.resolve(__dirname, 'src/**/*')],
   },
   module: {
     rules: [
