@@ -14,6 +14,7 @@
   </head>
   <body class="flex flex-col align-center justify-between">
     <main>
+      <p class="error"></p>
       <div class="search flex outline">
         <form class="flex">
           <input type="search" placeholder="City" />
@@ -23,64 +24,81 @@
           ></button>
         </form>
         <button class="toggle-unit">Celsius</button>
+        <div class="loader none"></div>
       </div>
 
-      <!-- Current Weather Info -->
       <div class="today-card outline">
         <div class="current-info flex align-center justify-between">
-          <div>
-            <p class="bold" id="temperature">23° C</p>
-            <p class="bold" id="feelsLikeTemperature">Feels like 30° C</p>
-            <p class="bold" id="location">Tokyo, USA</p>
+          <div style="width: 100%">
+            <p class="bold temp">23<sup>°C</sup></p>
+            <p class="bold feels-like">Feels like: 30°</p>
+            <p class="bold condition">Sunny</p>
+            <div class="flex justify-between">
+              <div>
+                <p class="bold date">Friday, 14 June</p>
+                <span class="bold location">City, Country</span>
+              </div>
+              <div>
+                <p class="bold humidity">Humidity: 60%</p>
+                <span class="bold rain-probability">Rain probability: 60%</span>
+              </div>
+            </div>
           </div>
-          <img src="./assets/svg/fill/clear-day.svg" alt="Sunny" />
+
+          <img
+            src="./assets/svg/fill/clear-day.svg"
+            alt="Sunny"
+            class="current-icon"
+          />
         </div>
 
         <ul class="hourly-info grid justify-between">
           <li class="hour-card flex flex-col align-center justify-between">
-            <p class="bold">32° C</p>
+            <p class="bold">32°</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
             <p class="bold">11:00</p>
             <p>AM</p>
           </li>
           <li class="hour-card flex flex-col align-center justify-between">
-            <p class="bold">30° C</p>
+            <p class="bold">30°</p>
             <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
             <p class="bold">12:00</p>
             <p>PM</p>
           </li>
           <li class="hour-card flex flex-col align-center justify-between">
-            <p class="bold">28° C</p>
-            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p class="bold">13:00</p>
+            <p class="bold">28°</p>
+            <img src="./assets/svg/line/cloudy.svg" alt="Cloudy" />
+            <p class="bold">01:00</p>
             <p>PM</p>
           </li>
           <li class="hour-card flex flex-col align-center justify-between">
-            <p class="bold">28° C</p>
-            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p class="bold">14:00</p>
+            <p class="bold">28°</p>
+            <img
+              src="./assets/svg/line/partly-cloudy-day-rain.svg"
+              alt="Partly cloudy and rain"
+            />
+            <p class="bold">02:00</p>
             <p>PM</p>
           </li>
           <li class="hour-card flex flex-col align-center justify-between">
-            <p class="bold">26° C</p>
-            <img src="./assets/svg/line/clear-day.svg" alt="Sunny" />
-            <p class="bold">15:00</p>
+            <p class="bold">26°</p>
+            <img src="./assets/svg/line/thunderstorms-rain.svg" alt="Sunny" />
+            <p class="bold">03:00</p>
             <p>PM</p>
           </li>
         </ul>
       </div>
 
-      <!-- Next Two Days Weather Info -->
       <ul class="grid forecast-card outline">
         <li class="forecast">
           <button class="grid grid-flow-col align-center justify-between">
             <span>Fri, 22 Jan</span>
-            <div class="grid grid-flow-col precipitation align-center">
-              <span>12%</span>
+            <div class="grid grid-flow-col rain-probability-cell align-center">
               <img
                 src="./assets/svg/line/raindrop.svg"
-                alt="precipitation icon"
+                alt="rain probability"
               />
+              <span>12%</span>
             </div>
             <img src="./assets/svg/line/clear-day.svg" alt="" />
             <span>18° / 32°</span>
@@ -89,14 +107,17 @@
         <li class="forecast">
           <button class="grid grid-flow-col align-center justify-between">
             <span>Sat, 23 Jan</span>
-            <div class="grid grid-flow-col precipitation align-center">
-              <span>100%</span>
+            <div class="grid grid-flow-col rain-probability-cell align-center">
               <img
                 src="./assets/svg/line/raindrop.svg"
-                alt="precipitation icon"
+                alt="rain probability"
               />
+              <span>100%</span>
             </div>
-            <img src="./assets/svg/line/drizzle.svg" alt="" />
+            <img
+              src="./assets/svg/line/thunderstorms-rain.svg"
+              alt="Thunderstorms"
+            />
             <span>22° / 36°</span>
           </button>
         </li>

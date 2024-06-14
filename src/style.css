@@ -11,9 +11,11 @@
   --text-base-300: 18px;
   --text-sm: 0.875rem;
   --text-md: 1.125rem;
-  --text-lg: 3.75rem;
+  --text-lg: 2rem;
+  --text-xl: 3.75rem;
   --text-dark: #334155;
   --color-dark-gray: #64748b;
+  --color-red-500: #ef4444;
   --color-sky-50: #f0f9ff;
   --color-sky-100: #e0f2fe;
   --color-sky-200: #bae6fd;
@@ -86,6 +88,9 @@ h6 {
 .bold {
   font-weight: bold;
 }
+.none {
+  display: none;
+}
 .outline {
   outline: var(--outline);
   border-radius: var(--border-radius);
@@ -119,15 +124,54 @@ img {
   pointer-events: none;
 }
 
-.search {
-  margin-top: 2rem;
+.error {
+  position: fixed;
+  top: 0.5%;
+  color: var(--color-red-500);
+  text-wrap: nowrap;
 }
+
+.search {
+  margin-top: 2.5rem;
+  position: relative;
+}
+
+.loader {
+  position: absolute;
+  bottom: 0;
+  height: 4px;
+  width: 100%;
+  margin-top: 2.5rem;
+  --c: no-repeat linear-gradient(#7dd3fc 0 0);
+  background: var(--c), var(--c), var(--color-sky-100);
+  background-size: 60% 100%;
+  border-bottom-right-radius: var(--border-radius);
+  border-bottom-left-radius: var(--border-radius);
+  animation: l16 3s infinite;
+}
+@keyframes l16 {
+  0% {
+    background-position:
+      -150% 0,
+      -150% 0;
+  }
+  66% {
+    background-position:
+      250% 0,
+      -150% 0;
+  }
+  100% {
+    background-position:
+      250% 0,
+      250% 0;
+  }
+}
+
 form {
   flex: 1;
 }
 input[type='search'] {
   width: 100%;
-  text-align: center;
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 }
@@ -143,7 +187,7 @@ input[type='search'],
 }
 .search-btn,
 .toggle-unit {
-  background-color: var(--color-sky-50);
+  background-color: white;
   transition-duration: var(--transition-duration);
 }
 .toggle-unit {
@@ -161,28 +205,42 @@ input[type='search'],
 
 .today-card {
   width: 100%;
-  background-color: var(--color-sky-50);
-  margin-block: 2.5rem;
+  background-color: white;
+  margin-top: 2.5rem;
   padding: var(--padding);
-  pointer-events: none;
   user-select: none;
   text-wrap: nowrap;
 }
-
 .current-info {
   position: relative;
   padding-top: 0.5rem;
 }
-.current-info p:first-child {
-  font-size: var(--text-lg);
+.temp {
+  font-size: var(--text-xl);
   line-height: 1;
 }
-.current-info p:last-child {
-  color: var(--color-dark-gray);
-  font-size: var(--text-sm);
+sup {
+  font-size: var(--text-lg);
 }
-.current-info img {
+.date,
+.feels-like,
+.location,
+.condition,
+.humidity,
+.rain-probability {
+  color: var(--color-dark-gray);
+}
+.humidity,
+.rain-probability {
+  text-align: right;
+}
+.condition,
+.location {
+  margin-bottom: 1.5rem;
+}
+.current-icon {
   position: absolute;
+  top: -10px;
   right: -4%;
   height: 130px;
 }
@@ -214,7 +272,8 @@ input[type='search'],
 .forecast-card {
   width: 100%;
   row-gap: 1rem;
-  background-color: var(--color-sky-50);
+  background-color: white;
+  margin-top: 2.5rem;
   padding: var(--padding);
 }
 .forecast button {
@@ -225,20 +284,22 @@ input[type='search'],
   font-size: var(--text-md);
   line-height: 1.75rem;
   text-wrap: nowrap;
-  background-color: var(--color-sky-50);
+  background-color: white;
   transition-duration: var(--transition-duration);
 }
 .forecast button:hover {
-  background-color: var(--color-sky-100);
+  background-color: var(--color-sky-50);
   cursor: pointer;
 }
 .forecast img {
   height: 40px;
 }
-.precipitation {
-  grid-template-columns: 4ch max-content;
+.rain-probability-cell {
+  grid-template-columns: max-content max-content;
 }
-
+.rain-probability-cell img {
+  height: 40px;
+}
 footer {
   text-align: center;
   padding: 1.5em;
@@ -264,7 +325,7 @@ footer p:nth-child(2) {
   position: fixed;
   bottom: 30px;
   right: 30px;
-  font-size: calc(var(--text-lg) - 0.75rem);
+  font-size: calc(var(--text-xl) - 0.75rem);
   color: var(--color-sky-50);
   transition-duration: var(--transition-duration);
 }
@@ -287,7 +348,7 @@ footer p:nth-child(2) {
     font-size: var(--text-base-300);
   }
 
-  .current-info img {
+  .current-info .current-icon {
     height: 160px;
   }
 
