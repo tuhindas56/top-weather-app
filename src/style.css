@@ -122,6 +122,9 @@ img {
 .search {
   margin-top: 2rem;
 }
+form {
+  flex: 1;
+}
 input[type='search'] {
   width: 100%;
   text-align: center;
@@ -132,22 +135,28 @@ input[type='search']:focus {
   outline: 0;
   background-color: var(--color-sky-50);
 }
-button[type='submit'] {
-  border-top-right-radius: var(--border-radius);
-  border-bottom-right-radius: var(--border-radius);
+input[type='search'],
+.search-btn,
+.toggle-unit {
+  border: 0;
+  padding: 1rem;
+}
+.search-btn,
+.toggle-unit {
   background-color: var(--color-sky-50);
   transition-duration: var(--transition-duration);
 }
-button[type='submit']:hover {
+.toggle-unit {
+  border-top-right-radius: var(--border-radius);
+  border-bottom-right-radius: var(--border-radius);
+}
+.search-btn:hover,
+.toggle-unit:hover {
   background-color: var(--color-sky-100);
 }
-button[type='submit']:active {
+.search-btn:active,
+.toggle-unit:active {
   background-color: var(--color-sky-200);
-}
-input[type='search'],
-button[type='submit'] {
-  border: 0;
-  padding: 1rem;
 }
 
 .today-card {
@@ -170,6 +179,7 @@ button[type='submit'] {
 }
 .current-info p:last-child {
   color: var(--color-dark-gray);
+  font-size: var(--text-sm);
 }
 .current-info img {
   position: absolute;

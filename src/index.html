@@ -14,16 +14,24 @@
   </head>
   <body class="flex flex-col align-center justify-between">
     <main>
-      <div class="search outline flex">
-        <input type="search" placeholder="City" />
-        <button type="submit" class="fa-solid fa-magnifying-glass"></button>
+      <div class="search flex outline">
+        <form class="flex">
+          <input type="search" placeholder="City" />
+          <button
+            type="submit"
+            class="search-btn fa-solid fa-magnifying-glass"
+          ></button>
+        </form>
+        <button class="toggle-unit">Celsius</button>
       </div>
+
       <!-- Current Weather Info -->
       <div class="today-card outline">
         <div class="current-info flex align-center justify-between">
           <div>
-            <p class="bold">23° C</p>
-            <p class="bold">Tokyo, USA</p>
+            <p class="bold" id="temperature">23° C</p>
+            <p class="bold" id="feelsLikeTemperature">Feels like 30° C</p>
+            <p class="bold" id="location">Tokyo, USA</p>
           </div>
           <img src="./assets/svg/fill/clear-day.svg" alt="Sunny" />
         </div>
