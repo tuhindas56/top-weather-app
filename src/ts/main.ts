@@ -103,3 +103,11 @@ async function renderWeatherInfoInDOM() {
     renderError(new Error('Failed to fetch weather data'))
   }
 }
+
+async function handleSearchQuery(event?: MouseEvent) {
+  if (event) {
+    event.preventDefault()
+    await renderWeatherInfoInDOM()
+    search.value = ''
+  }
+}
