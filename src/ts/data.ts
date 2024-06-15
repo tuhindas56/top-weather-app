@@ -55,7 +55,7 @@ export async function fetchWeatherData(location: string) {
       const feelsLikeC = Math.floor(feelslike_c)
       const feelsLikeF = Math.floor(feelslike_f)
       const formattedDate = format(last_updated, 'EEEE, dd MMMM')
-      const timeInHours = format(last_updated, 'hh')
+      const timeInHours = format(last_updated, 'HH')
       const { daily_chance_of_rain: rainProbability } = forecastday[0].day
       const hourData = forecastday[0].hour
       const currentHour = +format(new Date(), 'HH')
@@ -243,5 +243,5 @@ export function getIconPath(code: number, time: string) {
       pathNight = notAvailable
       break
   }
-  return +time < 18 && +time > 4 ? pathDay : pathNight
+  return +time < 17 && +time > 3 ? pathDay : pathNight
 }
