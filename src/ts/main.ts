@@ -15,10 +15,9 @@ const searchBtn = document.querySelector('.search-btn') as HTMLButtonElement
 const toggleUnitBtn = document.querySelector('.toggle-unit') as HTMLButtonElement
 let weatherUnit = 'C'
 
-async function renderWeatherInfoInDOM() {
+async function renderWeatherInfoInDOM(location?: string) {
   toggleLoader()
-  const location = search.value || 'Tokyo'
-  const weatherData = await fetchWeatherData(location)
+  const weatherData = await fetchWeatherData(location || 'Tokyo')
   if (weatherData) {
     const {
       city,
@@ -100,7 +99,7 @@ async function renderWeatherInfoInDOM() {
 async function handleSearchQuery(event?: MouseEvent) {
   if (event) {
     event.preventDefault()
-    await renderWeatherInfoInDOM()
+    await renderWeatherInfoInDOM(search.value)
     search.value = ''
   }
 }
@@ -112,7 +111,9 @@ search.addEventListener('input', () => {
 toggleUnitBtn.addEventListener('click', () => {
   weatherUnit = weatherUnit === 'C' ? 'F' : 'C'
   toggleUnitBtn.textContent = toggleUnitBtn.textContent === 'Celsius' ? 'Fahrenheit' : 'Celsius'
-  renderWeatherInfoInDOM()
+  const location = document.querySelector('.location') as HTMLSpanElement
+  const splitLocation = location.textContent!.split(',')
+  renderWeatherInfoInDOM(splitLocation.join(' '))
 })
 
 renderWeatherInfoInDOM()
