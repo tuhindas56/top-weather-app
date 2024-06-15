@@ -12,6 +12,7 @@ const locationElement = document.querySelector('.location') as HTMLSpanElement
 const humidityElement = document.querySelector('.humidity') as HTMLParagraphElement
 const rainProbabilityElement = document.querySelector('.rain-probability') as HTMLSpanElement
 const currentIcon = document.querySelector('.current-icon') as HTMLImageElement
+const hourlyInfo = document.querySelector('.hourly-info') as HTMLUListElement
 
 export function renderError(error: Error) {
   errorElement.textContent = `Error: ${error.message}`
@@ -47,4 +48,32 @@ export function renderCurrentData(
   locationElement.innerText = `${location.city}, ${location.country}`
   humidityElement.innerText = `Humidity: ${humidity}%`
   rainProbabilityElement.innerText = `Rain probability: ${rainProbability}%`
+}
+
+export function renderHourData(temp: number, time: string, iconPath: string) {
+  const liElement = document.createElement('li') as HTMLLIElement
+  const hourTempElement = document.createElement('p') as HTMLParagraphElement
+  const imgElement = new Image()
+  const timeElement = document.createElement('p') as HTMLParagraphElement
+  const amPmElement = document.createElement('p') as HTMLParagraphElement
+  const amPm = +time < 12 ? 'AM' : 'PM'
+
+  imgElement.src = iconPath
+  hourTempElement.innerText = `${temp}°`
+  timeElement.innerText = `${time}:00`
+  amPmElement.innerText = amPm
+
+  liElement.className = 'hour-card flex flex-col align-center justify-between'
+  hourTempElement.className = 'bold'
+  timeElement.className = 'bold'
+
+  liElement.appendChild(hourTempElement)
+  liElement.appendChild(imgElement)
+  liElement.appendChild(timeElement)
+  liElement.appendChild(amPmElement)
+  hourlyInfo.appendChild(liElement)
+}
+
+export function clearHourDataFromDOM() {
+  hourlyInfo.innerHTML = ''
 }
