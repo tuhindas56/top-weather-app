@@ -11,6 +11,8 @@ import {
 } from './domUtils'
 
 const search = document.querySelector('input[type="text"]') as HTMLInputElement
+const searchBtn = document.querySelector('.search-btn') as HTMLButtonElement
+const toggleUnitBtn = document.querySelector('.toggle-unit') as HTMLButtonElement
 let weatherUnit = 'C'
 
 async function locationHandler(location?: string) {
@@ -111,3 +113,15 @@ async function handleSearchQuery(event?: MouseEvent) {
     search.value = ''
   }
 }
+
+searchBtn.addEventListener('click', handleSearchQuery)
+search.addEventListener('input', () => {
+  searchBtn.disabled = false
+})
+toggleUnitBtn.addEventListener('click', () => {
+  weatherUnit = weatherUnit === 'C' ? 'F' : 'C'
+  toggleUnitBtn.textContent = toggleUnitBtn.textContent === 'Celsius' ? 'Fahrenheit' : 'Celsius'
+  renderWeatherInfoInDOM()
+})
+
+renderWeatherInfoInDOM()
