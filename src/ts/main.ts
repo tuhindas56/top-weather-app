@@ -10,7 +10,7 @@ import {
   toggleLoader,
 } from './domUtils'
 
-const search = document.querySelector('input[type="text"]') as HTMLInputElement
+const search = document.querySelector('.search-input') as HTMLInputElement
 const searchBtn = document.querySelector('.search-btn') as HTMLButtonElement
 const toggleUnitBtn = document.querySelector('.toggle-unit') as HTMLButtonElement
 let weatherUnit = 'C'

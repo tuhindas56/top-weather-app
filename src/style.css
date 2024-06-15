@@ -185,16 +185,16 @@ img {
 form {
   flex: 1;
 }
-input[type='text'] {
+.search-input {
   width: 100%;
   border-top-left-radius: var(--border-radius);
   border-bottom-left-radius: var(--border-radius);
 }
-input[type='text']:focus {
+.search-input:focus {
   outline: 0;
   background-color: var(--color-sky-50);
 }
-input[type='text'],
+.search-input,
 .search-btn,
 .toggle-unit {
   border: 0;
