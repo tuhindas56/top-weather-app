@@ -11,3 +11,11 @@ async function getCityFromIP() {
     return error
   }
 }
+
+export async function getLocation(location?: string) {
+  if (!location) {
+    const response = await getCityFromIP()
+    return response
+  }
+  return location
+}
