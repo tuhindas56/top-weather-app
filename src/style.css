@@ -221,6 +221,10 @@ form {
 .search-btn:disabled:active {
   background-color: white;
 }
+.search-btn img {
+  user-select: none;
+  height: 20px;
+}
 
 .today-card {
   width: 100%;
