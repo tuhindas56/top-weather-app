@@ -1,6 +1,6 @@
 import '../style.css'
 import { format } from 'date-fns'
-import { fetchWeatherData, getIconPath, getLocation } from './data'
+import { fetchWeatherData, getIconPath } from './data'
 import {
   clearHourDataFromDOM,
   renderCurrentData,
@@ -15,18 +15,9 @@ const searchBtn = document.querySelector('.search-btn') as HTMLButtonElement
 const toggleUnitBtn = document.querySelector('.toggle-unit') as HTMLButtonElement
 let weatherUnit = 'C'
 
-async function locationHandler(location?: string) {
-  const response = await getLocation(location)
-  if (response instanceof Error) {
-    renderError(response)
-    return 'Tokyo'
-  }
-  return response
-}
-
 async function renderWeatherInfoInDOM() {
   toggleLoader()
-  const location = await locationHandler(search.value)
+  const location = search.value || 'Tokyo'
   const weatherData = await fetchWeatherData(location)
   if (weatherData) {
     const {

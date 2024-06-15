@@ -27,28 +27,6 @@ import thunderstormsNightSnow from '../assets/svg/line/thunderstorms-night-snow.
 
 const API_KEY = 'e36def996b1a45bdb03142152241106'
 
-async function getCityFromIP() {
-  try {
-    const response = await fetch('http://ip-api.com/json', { mode: 'cors' })
-    const data = await response.json()
-    if (response.ok) {
-      const { city } = data
-      return city
-    }
-    throw new Error(data.error.message)
-  } catch (error: any) {
-    return error
-  }
-}
-
-export async function getLocation(location?: string) {
-  if (!location) {
-    const response = await getCityFromIP()
-    return response
-  }
-  return location
-}
-
 export async function fetchWeatherData(location: string) {
   try {
     const response = await fetch(
