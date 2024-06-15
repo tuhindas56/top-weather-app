@@ -77,3 +77,30 @@ export function renderHourData(temp: number, time: string, iconPath: string) {
 export function clearHourDataFromDOM() {
   hourlyInfo.innerHTML = ''
 }
+
+export function renderForecastData(
+  forecastNumber: number,
+  date: string,
+  rainProbability: string,
+  low: string,
+  high: string,
+  iconPath: string,
+) {
+  const forecastDate = document.querySelector(
+    `.forecast[data-id="${forecastNumber}"] .forecast-date`,
+  ) as HTMLSpanElement
+  const forecaseRainProbability = document.querySelector(
+    `.forecast[data-id="${forecastNumber}"] .forecast-rain-probability`,
+  ) as HTMLSpanElement
+  const forecaseLowHighTemp = document.querySelector(
+    `.forecast[data-id="${forecastNumber}"] .forecast-low-high-temp`,
+  ) as HTMLSpanElement
+  const forecastConditionIcon = document.querySelector(
+    `.forecast[data-id="${forecastNumber}"] .condition-icon`,
+  ) as HTMLImageElement
+
+  forecastDate.textContent = date
+  forecaseRainProbability.textContent = `${rainProbability}%`
+  forecaseLowHighTemp.textContent = `${low}° / ${high}°`
+  forecastConditionIcon.src = iconPath
+}
