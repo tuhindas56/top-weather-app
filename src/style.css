@@ -306,7 +306,7 @@ sup {
 }
 .forecast {
   width: 100%;
-  grid-template-columns: 1fr 1fr minmax(max-content, 1fr) max-content;
+  grid-template-columns: 1fr 1fr minmax(max-content, 140px) max-content;
   column-gap: 1rem;
   color: var(--text-dark);
   font-size: var(--text-sm);
@@ -325,7 +325,7 @@ sup {
 }
 .rain-probability-cell {
   grid-template-columns: max-content max-content;
-  justify-self: center;
+  justify-self: right;
 }
 .rain-probability-cell img {
   height: 40px;
