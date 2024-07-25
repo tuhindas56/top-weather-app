@@ -89,10 +89,10 @@ export function renderForecastData(
   const forecastDate = document.querySelector(
     `.forecast[data-id="${forecastNumber}"] .forecast-date`,
   ) as HTMLSpanElement
-  const forecaseRainProbability = document.querySelector(
+  const forecastRainProbability = document.querySelector(
     `.forecast[data-id="${forecastNumber}"] .forecast-rain-probability`,
   ) as HTMLSpanElement
-  const forecaseLowHighTemp = document.querySelector(
+  const forecastLowHighTemp = document.querySelector(
     `.forecast[data-id="${forecastNumber}"] .forecast-low-high-temp`,
   ) as HTMLSpanElement
   const forecastConditionIcon = document.querySelector(
@@ -100,7 +100,7 @@ export function renderForecastData(
   ) as HTMLImageElement
 
   forecastDate.textContent = date
-  forecaseRainProbability.textContent = `${rainProbability}%`
-  forecaseLowHighTemp.textContent = `${low}° / ${high}°`
+  forecastRainProbability.textContent = `${rainProbability}%`
+  forecastLowHighTemp.textContent = `${low}° / ${high}°`
   forecastConditionIcon.src = iconPath
 }
