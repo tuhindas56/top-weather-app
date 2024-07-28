@@ -1,6 +1,6 @@
 # top-weather-app
 
-A simple weather app built as part of <a href="https://www.theodinproject.com/lessons/node-path-javascript-weather-app">The Odin Project curriculum</a>.
+A simple weather app built as part of [The Odin Project curriculum](https://www.theodinproject.com/lessons/node-path-javascript-weather-app)
 
 ## Setup
 
